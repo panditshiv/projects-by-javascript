@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess Number</title>
+    <style>
+        .wrapper{
+            background-image: linear-gradient(to right top, #822b5d, #7a376d, #6e4279, #624c82, #555588, #4e6599, #4675a7, #3d85b2, #31a2ca, #2ac0dd, #3bdeea, #5ffbf1);
+      height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        .main-body{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            justify-content: space-evenly;
+            text-align: center;
+          margin:  150px 300px;
+            border:10px solid burlywood;
+            border-radius: 4px;
+            height: 30rem;
+
+        }
+        #guess{
+            background-color: transparent;
+            width: 50%;
+            height: 60px;
+            text-align: center;
+            align-self: center;
+            font-family: Algerian;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        .footer{
+            border:10px solid burlywood;
+            border-radius: 4px;
+            font-family: Algerian;
+            font-size: 20px;
+            font-weight: bolder;
+            padding: 6px;
+            align-self: center;
+            color: white;
+            letter-spacing: 3px;
+            background-color: brown;
+            cursor: pointer;
+
+        }
+        .myNum{
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: "Agency FB";
+            height: 1rem;
+            color: #5ffbf1;
+            margin: 10px;
+        }
+        .guessResult{
+            font-size:30px;
+            font-weight: bolder;
+            font-family: "Agency FB";
+            height: 1rem;
+            color: greenyellow;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="main-body" >
+        <h1>Guess The Number</h1>
+        <input type="text" id="guess" placeholder="Enter your No for Guess">
+        <span class="myNum"></span>
+        <span class="guessResult"></span>
+        <footer class="footer">
+
+            Generate No
+        </footer>
+    </div>
+</div>
+<script>
+    let myNum=document.querySelector('.myNum')
+    let guessResult=document.querySelector('.guessResult')
+    let generateNo=document.querySelector('.footer')
+    let guessNum= document.querySelector('#guess')
+
+
+ generateNo.addEventListener('click',()=>{
+     let guessNumber=Math.floor(Math.random()*(100+1))
+   myNum.innerHTML=guessNumber.toFixed()
+
+if(Number(guessNum.value)){
+
+    if(guessNumber==guessNum.value){
+        guessResult.innerHTML="You Win"
+
+    }
+
+
+    else{
+        guessResult.innerHTML="You Lost"
+    }
+}
+else{
+    guessResult.innerHTML="Input is Invalid"
+}
+
+
+
+})
+
+
+
+</script>
+</body>
+</html>
